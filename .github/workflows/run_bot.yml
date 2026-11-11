@@ -20,8 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install pybit pandas requests
-          pip install git+https://github.com/twopirllc/pandas-ta.git
+          pip install pybit pandas requests pandas-ta
 
       - name: Run script
         run: |
