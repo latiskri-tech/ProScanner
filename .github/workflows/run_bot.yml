@@ -6,27 +6,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+      runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests pandas pybit
-        pip install https://github.com/twopirllc/pandas-ta/archive/main.zip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas pybit
+          pip install https://github.com/twopirllc/pandas-ta/archive/main.zip
 
-    - name: Run scanner bot
-      env:
-        TELEGRAM_TOKEN: '8698028434:AAEI-rGxwpBcCih-hzMaELPeg5wOkWSc4Ho'
-        TELEGRAM_CHAT_ID: '639554263'
-      run: |
-        python scanner.py
+      - name: Run scanner bot
+        env:
+          TELEGRAM_TOKEN: '8698028434:AAEI-rGxwpBcCih-hzMaELPeg5wOkWSc4Ho'
+          TELEGRAM_CHAT_ID: '639554263'
+        run: |
+          python scanner.py
+          
