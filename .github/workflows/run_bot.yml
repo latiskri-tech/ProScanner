@@ -2,7 +2,7 @@ name: Run Bybit Scanner
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/15 * * * *' # Runs every 15 minutes
   workflow_dispatch:
 
 jobs:
@@ -21,11 +21,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests pandas pybit
+        pip install requests pandas pybit pandas-ta
 
     - name: Run scanner bot
       env:
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_TOKEN: '8698028434:AAEI-rGxwpBcCih-hzMaELPeg5wOkWSc4Ho'
+        TELEGRAM_CHAT_ID: '639554263'
       run: |
         python scanner.py
